@@ -1,7 +1,9 @@
 // =====================================================
 // CONFIGURATION - Gets from config.js
 // =====================================================
-const DEFAULT_WISP = window.SITE_CONFIG?.defaultWisp ?? "wss://lunarrr.eminescusm.ro/w/";
+
+console.log("NEW SCRIPT LOADED");
+const DEFAULT_WISP = window.SITE_CONFIG?.defaultWisp ?? "wss://anura.pro";
 const WISP_SERVERS = [
     { name: "anura.pro", url: "wss://anura.pro" },
     { name: "Lunar's wisp", url:"wss://lunarrr.eminescusm.ro/w/"}
@@ -191,8 +193,10 @@ async function getSharedConnection() {
 
     const basePath = getBasePath();
     const wispUrl = localStorage.getItem("proxServer") ?? DEFAULT_WISP;
-    
-    sharedConnection = new BareMux.BareMuxConnection(basePath + "bareworker.js");
+
+    sharedConnection = new BareMux.BareMuxConnection(
+        "https://cdn.jsdelivr.net/gh/rykcbaoolNEW/static-scram@main/bareworker.js"
+    );
     await sharedConnection.setTransport(
         "https://cdn.jsdelivr.net/npm/@mercuryworkshop/epoxy-transport@2.1.28/dist/index.mjs",
         [{ wisp: wispUrl }]
