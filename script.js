@@ -1,8 +1,11 @@
 // =====================================================
 // CONFIGURATION - Gets from config.js
 // =====================================================
-const DEFAULT_WISP = window.SITE_CONFIG?.defaultWisp ?? "wss://glseries.net/wisp/";
-const WISP_SERVERS = [{ name: "GLSeries", url: "wss://glseries.net/wisp/" }];
+const DEFAULT_WISP = window.SITE_CONFIG?.defaultWisp ?? "wss://lunarrr.eminescusm.ro/w/";
+const WISP_SERVERS = [
+    { name: "anura.pro", url: "wss://anura.pro" },
+    { name: "Lunar's wisp", url:"wss://lunarrr.eminescusm.ro/w/"}
+];
 
 // Initialize default proxy server if not set
 if (!localStorage.getItem("proxServer")) {
