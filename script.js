@@ -187,15 +187,13 @@ async function getSharedScramjet() {
     
     return sharedScramjet;
 }
-
 async function getSharedConnection() {
     if (sharedConnectionReady) return sharedConnection;
 
     const basePath = getBasePath();
     const wispUrl = localStorage.getItem("proxServer") ?? DEFAULT_WISP;
-
-    sharedConnection = new BareMux.BareMuxConnection("./bareworker.js");
     
+    sharedConnection = new BareMux.BareMuxConnection(basePath + "bareworker.js");
     await sharedConnection.setTransport(
         "https://cdn.jsdelivr.net/npm/@mercuryworkshop/epoxy-transport@2.1.28/dist/index.mjs",
         [{ wisp: wispUrl }]
